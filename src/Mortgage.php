@@ -11,5 +11,8 @@ namespace Calculator;
 
 class Mortgage
 {
-
+        public function test()
+        {
+            echo 1111;
+        }
 }
