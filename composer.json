@@ -1,7 +1,13 @@
 {
-  "name": "renjingfeng/calculator",
-  "description": "Mortgage calculator",
-  "require": {
-    "php": "^5.3.3 || ^7.0"
-  }
+    "name": "renjingfeng/calculator",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Eric",
+            "email": "258141982@qq.com"
+        }
+    ],
+    "require": {
+      "php": "^5.3.3 || ^7.0"
+    }
 }
