@@ -61,7 +61,7 @@ class Mortgage
             $list[]         = [
                 'principal' => round($principal, 2),
                 'interest'  => round($interest_month, 2),
-                'total'   => round(($principal + $interest_month), 2),
+                'total'     => round(($principal + $interest_month), 2),
             ];
             $amount         = $amount - $principal;
             $total_interest = $total_interest + $interest_month;
@@ -85,12 +85,12 @@ class Mortgage
         $total['rate_year']      = $this->payload['rate_year']; //贷款年利率
         $total['mortgage_month'] = $this->payload['mortgage_month']; //贷款月数，30年就是360个月
 
-        $mortgage_month = $this->payload['mortgage_month'];
-        $amount = $this->payload['amount'] * 10000; //贷款总额
-        $rate_year    = $this->payload['rate_year'] / 100;  //贷款年利率
-        $principal      = $amount / $mortgage_month; //每个月还款本金
-        $total_interest = 0; //总利息
-        $list = array();
+        $mortgage_month              = $this->payload['mortgage_month'];
+        $amount                      = $this->payload['amount'] * 10000; //贷款总额
+        $rate_year                   = $this->payload['rate_year'] / 100;  //贷款年利率
+        $principal                   = $amount / $mortgage_month; //每个月还款本金
+        $total_interest              = 0; //总利息
+        $list                        = array();
         $refund_first_month          = $principal + ($amount * $rate_year / 12);//第一个月还款
         $total['refund_first_month'] = round($refund_first_month, 2); //第一个月还款，必须放到循环的上面
         for ($i = 0; $i < $mortgage_month; $i++) {
@@ -98,14 +98,15 @@ class Mortgage
             $list[]         = [
                 'principal' => round($principal, 2),
                 'interest'  => round($interest_month, 2),
-                'total'   => round(($principal + $interest_month), 2),
+                'total'     => round(($principal + $interest_month), 2),
             ];
-            $amount -= $principal;
+            $amount         -= $principal;
             $total_interest = $total_interest + $interest_month;
         }
 
-        $total['total_interest'] = round(($total_interest / 10000), 2); //总利息，
-        $total['refund_last_month']  = round(($principal + $interest_month), 2); //最后一个月还款
+        $total['total_interest']    = round(($total_interest / 10000), 2); //总利息，
+        $total['refund_last_month'] = round(($principal + $interest_month), 2); //最后一个月还款
+        $total['list']              = $list;
         return $total;
     }
 }
