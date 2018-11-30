@@ -37,7 +37,7 @@ class Mortgage
     }
 
     /**
-     * 等额本息
+     * 
      * @brief 等额本息
      * @return array
      * */
@@ -75,8 +75,9 @@ class Mortgage
 
     }
 
-    /*
-     * 等额本金
+    /**
+     * @brief 等额本金
+     * @return array
     *   */
     function debj()
     {
