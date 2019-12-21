@@ -6,7 +6,7 @@
  * Time: 17:08
  */
 
-namespace Calculator;
+namespace Calculator\Mortgage;
 
 /**
  * @brief 房贷计算
